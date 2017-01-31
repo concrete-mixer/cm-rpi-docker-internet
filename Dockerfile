@@ -29,7 +29,6 @@ RUN git clone https://github.com/ccrma/chugins.git
 RUN cd chugins && make linux-alsa && sudo make install && cd -
 
 RUN git clone https://github.com/concrete-mixer/concrete-mixer.git
-RUN cd /concrete-mixer && git checkout soundcloud-poc
 
 COPY conf/darkice.cfg /etc/darkice.cfg
 COPY conf/icecast.xml /etc/icecast2/

@@ -7,9 +7,9 @@ After=docker.service
 
 [Service]
 Restart=always
-ExecStart=/usr/bin/docker run --name=concrete_mixer --device=/dev/snd:/dev/snd -p 80:8000 -v /home/pi/audio:/cm-files cm-rpi:latest
-ExecStop=/usr/bin/docker stop -t 2 concrete_mixer
-ExecStopPost=/usr/bin/docker rm -f concrete_mixer
+ExecStart=/usr/bin/docker run --name=concrete_mixer_internet --device=/dev/snd:/dev/snd -p 80:8000 cm-rpi-internet:latest
+ExecStop=/usr/bin/docker stop -t 2 concrete_mixer_internet
+ExecStopPost=/usr/bin/docker rm -f concrete_mixer_internet
 
 [Install]
 WantedBy=default.target
