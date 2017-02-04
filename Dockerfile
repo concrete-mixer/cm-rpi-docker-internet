@@ -9,6 +9,7 @@ RUN apt-get update && \
         git \
         icecast2 \
         libasound2-dev \
+	libav-tools \
         libjack-jackd2-0 \
         libmp3lame0 \
         libpulse0 \
@@ -16,6 +17,9 @@ RUN apt-get update && \
         libsndfile1-dev \
         libtwolame0 \
         make \
+	python-dev \
+	python-pip \
+	python-virtualenv\
         supervisor
 
 COPY deb-pkg /deb-pkg
@@ -32,16 +36,19 @@ RUN git clone https://github.com/concrete-mixer/concrete-mixer.git
 
 COPY conf/darkice.cfg /etc/darkice.cfg
 COPY conf/icecast.xml /etc/icecast2/
+
 RUN chown icecast2:icecast /etc/icecast2/icecast.xml
 
 COPY conf/concrete.conf /concrete-mixer/concrete.conf
 COPY conf/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-
 RUN mkdir -p /var/log/supervisor
 
 EXPOSE 8000
+EXPOSE 2424
 
 RUN useradd -ms /bin/bash cmuser && addgroup cmuser audio
+
+RUN cd /concrete-mixer && pip install -r requirements.txt
 
 CMD ["/usr/bin/supervisord"]
