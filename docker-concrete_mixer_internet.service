@@ -7,7 +7,7 @@ After=docker.service
 
 [Service]
 Restart=always
-ExecStart=/usr/bin/docker run --name=concrete_mixer_internet --device=/dev/snd:/dev/snd -p 8000:8000 -p 2400:2400 cm-rpi-internet:latest
+ExecStart=/usr/bin/docker run --name=concrete_mixer_internet --device=/dev/snd:/dev/snd -p 8000:8000 -p cm-rpi-internet:latest
 ExecStop=/usr/bin/docker stop -t 2 concrete_mixer_internet
 ExecStopPost=/usr/bin/docker rm -f concrete_mixer_internet
 

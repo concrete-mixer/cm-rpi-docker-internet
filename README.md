@@ -44,7 +44,7 @@ All going well, at the end of the process you should hear Concrète Mixer playin
 
 To do this:
 
-1. Copy the contents of [this file](https://raw.githubusercontent.com/concrete-mixer/cm-rpi-docker-internet/master/docker-concrete_mixer_internet.service) to `/etc/systemd/system/`:
+1. Copy the contents of [this file](https://raw.githubusercontent.com/concrete-mixer/cm-rpi-docker-internet/master/docker-concrete_mixer_internet.service) to `/etc/systemd/system/docker-concrete_mixer_internet.service`:
 
 2. Restart systemd so the new file is detected:
 
@@ -58,7 +58,8 @@ To do this:
 
 # Security
 
-The conf/icecast2.xml file provides a default username and password. If you ever expose your Pi to the internet you should rebuild the docker image and specify secure credentials for all connections (including those used by darkice).
+The `conf/icecast2.xml` file provides a default username and password. If you ever expose your Pi to the internet you should fork this repo, and specify secure credentials in `conf/icecast2.xml` and `conf/darkice.cfg` for all connections (including those used by darkice).
+
 
 # See also
 
