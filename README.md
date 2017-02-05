@@ -58,7 +58,7 @@ To do this:
 
 # Security
 
-The `conf/icecast2.xml` file provides a default username and password. If you ever expose your Pi to the internet you should fork this repo, and specify secure credentials in `conf/icecast2.xml` and `conf/darkice.cfg` for all connections (including those used by darkice).
+The `conf/icecast2.xml` file provides a default username and password. If you ever expose your Pi to the internet you should fork this repo, and specify secure credentials in `conf/icecast2.xml` and `conf/darkice.cfg`.
 
 
 # See also
