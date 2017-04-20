@@ -75,6 +75,4 @@ RUN useradd -ms /bin/bash cmuser && addgroup cmuser audio
 
 # RUN cd /concrete-mixer && pip install -r requirements.txt
 
-RUN apt-get -qy install vim-tiny
-
 CMD ["/usr/bin/supervisord"]
